@@ -65,6 +65,8 @@ public class MainActivity extends Activity {
 	
 	public void goToSearch(View v){
 		String query = etSearch.getText().toString();
+		System.out.println("https://ajax.googleapis.com/ajax/services/search/images?rsz=8&" + "start=" + 0
+				+ "&v=1.0&q=" + Uri.encode(query) + getSearchURL());
 		Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT).show();
 		AsyncHttpClient client = new AsyncHttpClient();
 		// https://ajax.googleapis.com/ajax/services/search/images?q=Android&v=1.0
@@ -112,6 +114,10 @@ public class MainActivity extends Activity {
 			color = bundle.getString("color");
 			type = bundle.getString("type");
 			site = bundle.getString("site");
+			Log.d("aaaaaaaa", size);
+			Log.d("aaaaaaaa", color);
+			Log.d("aaaaaaaa", type);
+			Log.d("aaaaaaaa", site);
 			break;
 		default:
 			break;
@@ -132,31 +138,31 @@ public class MainActivity extends Activity {
 		StringBuffer result= new StringBuffer();
 		if (size.equals("small")){
 			result.append("&imgsz=icon");
-		}else if (size.equals("medium")){
+		}if (size.equals("medium")){
 			result.append("&imgsz=medium");
-		}else if (size.equals("large")){
+		}if (size.equals("large")){
 			result.append("&imgsz=xxlarge");
-		}else if (size.equals("extra-large")){
+		}if (size.equals("extra-large")){
 			result.append("&imgsz=huge");
-		}else if (color.equals("black")){
+		}if (color.equals("black")){
 			result.append("&imgcolor=black");
-		}else if (color.equals("blue")){
+		}if (color.equals("blue")){
 			result.append("&imgcolor=blue");
-		}else if (color.equals("brown")){
+		}if (color.equals("brown")){
 			result.append("&imgcolor=brown");
-		}else if (color.equals("gray")){
+		}if (color.equals("gray")){
 			result.append("&imgcolor=gray");
-		}else if (color.equals("green")){
+		}if (color.equals("green")){
 			result.append("&imgcolor=green");
-		}else if (type.equals("faces")){
+		}if (type.equals("faces")){
 			result.append("&imgtype=face");
-		}else if (type.equals("photo")){
+		}if (type.equals("photo")){
 			result.append("&imgtype=photo");
-		}else if (type.equals("clip")){
+		}if (type.equals("clip")){
 			result.append("&imgtype=clipart");
-		}else if (type.equals("art")){
+		}if (type.equals("art")){
 			result.append("&imgtype=lineart");
-		}else if (type.equals("line art")){
+		}if (type.equals("line art")){
 			result.append("&imgtype=lineart");
 		}
 		result.append("&as_sitesearch="+site);
